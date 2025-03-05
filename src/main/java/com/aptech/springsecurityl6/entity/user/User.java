@@ -43,4 +43,13 @@ public class User implements Serializable {
     )
     private Set<Role> roles;
 
+    public User(User user) {
+        this.id = user.getId();
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        this.name = user.getName();
+        this.lastLoginDate = user.getLastLoginDate();
+        this.status = user.getStatus();
+    }
+
 }
