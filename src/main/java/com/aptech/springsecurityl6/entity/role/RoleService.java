@@ -11,4 +11,9 @@ public class RoleService {
     public void save(Role role) {
         roleRepository.save(role);
     }
+
+    public Role findByName(String name) {
+        return roleRepository.findByName(name);
+    }
+
 }

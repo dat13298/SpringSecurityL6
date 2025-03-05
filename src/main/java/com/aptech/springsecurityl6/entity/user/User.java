@@ -2,6 +2,9 @@ package com.aptech.springsecurityl6.entity.user;
 
 import com.aptech.springsecurityl6.entity.role.Role;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.io.Serializable;
@@ -21,8 +24,13 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Email(message = "Email invalid")
+    @NotNull(message = "Email not null")
     private String email;
+    @NotNull(message = "Password not null")
     private String password;
+    @NotNull(message = "Name not null")
+    @Size(min = 1, max = 50, message = "Name must be between 1 and 50 characters")
     private String name;
     @Column(name = "last_login_date")
     private Timestamp lastLoginDate;
